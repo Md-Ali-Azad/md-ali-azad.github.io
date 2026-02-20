@@ -492,11 +492,11 @@
       // Add hover effect to resume items
       document.querySelectorAll('.resume-item').forEach(item => {
         item.addEventListener('mouseenter', function() {
-          this.style.transform = 'translateX(10px) scale(1.02)';
+          this.style.transform = 'translateX(5px)';
         });
         
         item.addEventListener('mouseleave', function() {
-          this.style.transform = 'translateX(0) scale(1)';
+          this.style.transform = 'translateX(0)';
         });
       });
 
@@ -510,39 +510,6 @@
           this.style.animation = '';
         });
       });
-
-      // Add particle effect on mouse move
-      document.addEventListener('mousemove', (e) => {
-        const particle = document.createElement('div');
-        particle.style.position = 'fixed';
-        particle.style.width = '5px';
-        particle.style.height = '5px';
-        particle.style.borderRadius = '50%';
-        particle.style.background = 'rgba(138, 43, 226, 0.5)';
-        particle.style.left = e.clientX + 'px';
-        particle.style.top = e.clientY + 'px';
-        particle.style.pointerEvents = 'none';
-        particle.style.animation = 'fadeOut 1s ease-out forwards';
-        particle.style.zIndex = '9999';
-        
-        document.body.appendChild(particle);
-        
-        setTimeout(() => {
-          particle.remove();
-        }, 1000);
-      });
-
-      // Add fadeOut animation
-      const style = document.createElement('style');
-      style.textContent = `
-        @keyframes fadeOut {
-          to {
-            opacity: 0;
-            transform: scale(0);
-          }
-        }
-      `;
-      document.head.appendChild(style);
 
       // Loading animation
       window.addEventListener('load', () => {
